@@ -4,6 +4,7 @@ var body_parser = require('body-parser')
 const bcrypt = require('bcrypt')
 const port = process.env.PORT || 3000
 const { LoginDB } = require('./LoginSchema')
+const constants = require('./Constants')
 
 let app = express()
 const saltRounds = 100;
@@ -53,6 +54,11 @@ app.get('/login', async (req, res) => {
         }
     }
 })
+
+app.get('/'+ constants.GOOGLE_LOGIN,async(req,res)=>{
+    req.body
+})
+
 
 app.post('/signup', async (req, res) => {
     let pass = req.body.pass
